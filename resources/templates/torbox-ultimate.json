@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox setup: TorBox Search (torrent + usenet) plus broad scraper coverage, SeaDex-aware anime, HDR/DV and lossless audio preferred, junk filtered, and a tidy per-resolution result list.",
+    "description": "A quality-first TorBox Pro setup: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, HDR/DV and lossless audio preferred, junk filtered, and a tidy per-resolution result list.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -65,17 +65,6 @@
         }
       },
       {
-        "type": "animetosho",
-        "instanceId": "137",
-        "enabled": true,
-        "options": {
-          "name": "AnimeTosho",
-          "timeout": 7000,
-          "mediaTypes": ["anime"],
-          "useMultipleInstances": false
-        }
-      },
-      {
         "type": "knaben",
         "instanceId": "534",
         "enabled": true,
@@ -101,16 +90,6 @@
           "certificationLevelsFilter": [],
           "nudityFilter": [],
           "mediaTypes": []
-        }
-      },
-      {
-        "type": "seadex",
-        "instanceId": "5dx",
-        "enabled": true,
-        "options": {
-          "name": "SeaDex",
-          "timeout": 7000,
-          "mediaTypes": ["anime"]
         }
       },
       {
@@ -225,56 +204,6 @@
           "key": "size",
           "direction": "desc"
         }
-      ],
-      "anime": [
-        {
-          "key": "cached",
-          "direction": "desc"
-        },
-        {
-          "key": "library",
-          "direction": "desc"
-        },
-        {
-          "key": "seadex",
-          "direction": "desc"
-        },
-        {
-          "key": "resolution",
-          "direction": "desc"
-        },
-        {
-          "key": "regexPatterns",
-          "direction": "desc"
-        },
-        {
-          "key": "streamExpressionMatched",
-          "direction": "desc"
-        },
-        {
-          "key": "quality",
-          "direction": "desc"
-        },
-        {
-          "key": "visualTag",
-          "direction": "desc"
-        },
-        {
-          "key": "audioTag",
-          "direction": "desc"
-        },
-        {
-          "key": "encode",
-          "direction": "desc"
-        },
-        {
-          "key": "language",
-          "direction": "desc"
-        },
-        {
-          "key": "size",
-          "direction": "desc"
-        }
       ]
     },
     "deduplicator": {
@@ -292,8 +221,8 @@
     "requiredQualities": [],
     "excludedLanguages": [],
     "includedLanguages": [],
-    "requiredLanguages": [],
-    "preferredLanguages": [],
+    "requiredLanguages": ["English", "Multi", "Dual Audio", "Unknown"],
+    "preferredLanguages": ["English", "Multi", "Dual Audio", "Unknown"],
     "includedVisualTags": [],
     "requiredVisualTags": [],
     "preferredVisualTags": [
@@ -392,13 +321,11 @@
       "streamTypes": ["usenet"]
     },
     "excludedStreamExpressions": [
-      "queryType == 'anime.movie' ? resolution(streams, '2160p') : []",
       "queryType == 'movie' ? size(streams, 0, '200MB') : []"
     ],
     "resultLimits": {
       "resolution": 8,
       "global": 40
-    },
-    "preferredStreamExpressions": ["seadex(streams, 'best')", "seadex(streams)"]
+    }
   }
 }
