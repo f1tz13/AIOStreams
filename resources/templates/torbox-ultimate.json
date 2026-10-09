@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, HDR/DV and lossless audio preferred, junk filtered, and a tidy per-resolution result list.",
+    "description": "A quality-first TorBox Pro setup: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, HDR/DV and lossless audio preferred, junk filtered, TMDB info and streaming-service catalogs with optional rating posters.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -82,7 +82,7 @@
         "options": {
           "name": "MediaFusion",
           "timeout": 7000,
-          "resources": ["stream", "catalog", "meta"],
+          "resources": ["stream"],
           "useCachedResultsOnly": true,
           "enableWatchlistCatalogs": false,
           "downloadViaBrowser": false,
@@ -115,6 +115,30 @@
           "providers": [],
           "includeP2P": false,
           "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "tmdb-addon",
+        "instanceId": "tmd",
+        "enabled": true,
+        "options": {
+          "name": "The Movie Database",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "hideEpisodeThumbnails": false,
+          "provideImdbId": true,
+          "language": "en-GB"
+        }
+      },
+      {
+        "type": "streaming-catalogs",
+        "instanceId": "stc",
+        "enabled": true,
+        "options": {
+          "name": "Streaming Catalogs",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["nfx", "dnp", "amp", "atp", "pmp", "hbm"]
         }
       }
     ],
@@ -326,6 +350,9 @@
     "resultLimits": {
       "resolution": 8,
       "global": 40
-    }
+    },
+    "posterService": "rpdb",
+    "rpdbApiKey": "<optional_template_placeholder>",
+    "usePosterServiceForMeta": true
   }
 }
