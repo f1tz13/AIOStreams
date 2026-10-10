@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, HDR/DV and lossless audio preferred, junk filtered, TMDB info and streaming-service catalogs with optional rating posters.",
+    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, TMDB info and streaming-service catalogs with optional rating posters.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -150,9 +150,9 @@
       }
     },
     "preferredQualities": [
-      "BluRay REMUX",
       "BluRay",
       "WEB-DL",
+      "BluRay REMUX",
       "WEBRip",
       "HDRip",
       "HC HD-Rip",
@@ -264,17 +264,18 @@
     "includedAudioTags": [],
     "requiredAudioTags": [],
     "preferredAudioTags": [
+      "DD+",
+      "DD",
       "Atmos",
-      "DTS:X",
+      "DTS",
       "TrueHD",
       "DTS-HD MA",
-      "DD+",
+      "DTS:X",
       "DTS-HD",
-      "DTS",
-      "DD",
+      "DTS-ES",
+      "AAC",
       "FLAC",
       "OPUS",
-      "AAC",
       "Unknown"
     ],
     "excludedStreamTypes": [],
@@ -284,7 +285,7 @@
     "excludedEncodes": ["XviD", "DivX"],
     "includedEncodes": [],
     "requiredEncodes": [],
-    "preferredEncodes": ["AV1", "HEVC", "AVC", "Unknown"],
+    "preferredEncodes": ["HEVC", "AVC", "Unknown", "AV1"],
     "seederRangeTypes": [],
     "digitalReleaseFilter": {
       "enabled": true,
