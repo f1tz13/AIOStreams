@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, HDR/DV and lossless audio preferred, junk filtered, TMDB info and streaming-service catalogs with optional rating posters.",
+    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, rating posters, and hand-picked TMDB, streaming-service, recommendation, collection, franchise, RPDB and AI Search catalogs.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.2.0",
+    "version": "1.5.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -138,7 +138,105 @@
           "name": "Streaming Catalogs",
           "timeout": 7000,
           "resources": ["catalog"],
-          "catalogs": ["nfx", "dnp", "amp", "atp", "pmp", "hbm"]
+          "catalogs": ["nfx", "dnp", "amp", "atp", "hbm"]
+        }
+      },
+      {
+        "type": "more-like-this",
+        "instanceId": "mlt",
+        "enabled": true,
+        "options": {
+          "name": "More Like This",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "simklRecomendations": true,
+          "combineCatalogs": true,
+          "includeTmdbCollection": true,
+          "enableTitleSearching": true,
+          "forceToTop": false,
+          "language": "en"
+        }
+      },
+      {
+        "type": "tmdb-collections",
+        "instanceId": "tcl",
+        "enabled": true,
+        "options": {
+          "name": "TMDB Collections",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "enableAdultContent": false,
+          "enableSearch": true,
+          "language": "en",
+          "moveStreamLinkToTop": false
+        }
+      },
+      {
+        "type": "marvel-universe",
+        "instanceId": "mcu",
+        "enabled": true,
+        "options": {
+          "name": "Marvel Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["marvel-mcu", "release-order", "xmen"]
+        }
+      },
+      {
+        "type": "star-wars-universe",
+        "instanceId": "swu",
+        "enabled": true,
+        "options": {
+          "name": "Star Wars Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["sw-movies-series-chronological", "sw-skywalker-saga"]
+        }
+      },
+      {
+        "type": "dc-universe",
+        "instanceId": "dcu",
+        "enabled": true,
+        "options": {
+          "name": "DC Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["dc-chronological", "dc-batman"]
+        }
+      },
+      {
+        "type": "doctor-who-universe",
+        "instanceId": "dwu",
+        "enabled": true,
+        "options": {
+          "name": "Doctor Who Universe",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"]
+        }
+      },
+      {
+        "type": "rpdb-catalogs",
+        "instanceId": "rpc",
+        "enabled": true,
+        "options": {
+          "name": "RPDB Catalogs",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["movie", "series", "other"]
+        }
+      },
+      {
+        "type": "ai-search",
+        "instanceId": "ais",
+        "enabled": true,
+        "options": {
+          "name": "AI Search",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "geminiApiKey": "<required_template_placeholder>",
+          "AiResponseCaching": true,
+          "language": "en-US",
+          "numberOfRecommendations": 20
         }
       }
     ],
@@ -150,9 +248,9 @@
       }
     },
     "preferredQualities": [
-      "BluRay REMUX",
       "BluRay",
       "WEB-DL",
+      "BluRay REMUX",
       "WEBRip",
       "HDRip",
       "HC HD-Rip",
@@ -264,17 +362,18 @@
     "includedAudioTags": [],
     "requiredAudioTags": [],
     "preferredAudioTags": [
+      "DD+",
+      "DD",
       "Atmos",
-      "DTS:X",
+      "DTS",
       "TrueHD",
       "DTS-HD MA",
-      "DD+",
+      "DTS:X",
       "DTS-HD",
-      "DTS",
-      "DD",
+      "DTS-ES",
+      "AAC",
       "FLAC",
       "OPUS",
-      "AAC",
       "Unknown"
     ],
     "excludedStreamTypes": [],
@@ -284,7 +383,7 @@
     "excludedEncodes": ["XviD", "DivX"],
     "includedEncodes": [],
     "requiredEncodes": [],
-    "preferredEncodes": ["AV1", "HEVC", "AVC", "Unknown"],
+    "preferredEncodes": ["HEVC", "AVC", "Unknown", "AV1"],
     "seederRangeTypes": [],
     "digitalReleaseFilter": {
       "enabled": true,
@@ -352,7 +451,7 @@
       "global": 40
     },
     "posterService": "rpdb",
-    "rpdbApiKey": "<optional_template_placeholder>",
+    "rpdbApiKey": "<required_template_placeholder>",
     "usePosterServiceForMeta": true
   }
 }
