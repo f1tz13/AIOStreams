@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, TMDB info and streaming-service catalogs with optional rating posters.",
+    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, TMDB info, streaming-service, collection, recommendation and franchise catalogs with optional rating posters.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -138,7 +138,79 @@
           "name": "Streaming Catalogs",
           "timeout": 7000,
           "resources": ["catalog"],
-          "catalogs": ["nfx", "dnp", "amp", "atp", "pmp", "hbm"]
+          "catalogs": ["nfx", "dnp", "amp", "atp", "pmp", "hbm", "hay"]
+        }
+      },
+      {
+        "type": "more-like-this",
+        "instanceId": "mlt",
+        "enabled": true,
+        "options": {
+          "name": "More Like This",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "simklRecomendations": true,
+          "combineCatalogs": true,
+          "includeTmdbCollection": true,
+          "enableTitleSearching": true,
+          "forceToTop": false,
+          "language": "en"
+        }
+      },
+      {
+        "type": "tmdb-collections",
+        "instanceId": "tcl",
+        "enabled": true,
+        "options": {
+          "name": "TMDB Collections",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "enableAdultContent": false,
+          "enableSearch": true,
+          "language": "en"
+        }
+      },
+      {
+        "type": "torrent-catalogs",
+        "instanceId": "trc",
+        "enabled": true,
+        "options": {
+          "name": "Torrent Catalogs",
+          "timeout": 7000,
+          "resources": ["catalog"]
+        }
+      },
+      {
+        "type": "marvel-universe",
+        "instanceId": "mcu",
+        "enabled": true,
+        "options": {
+          "name": "Marvel Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["marvel-mcu", "release-order", "xmen"]
+        }
+      },
+      {
+        "type": "star-wars-universe",
+        "instanceId": "swu",
+        "enabled": true,
+        "options": {
+          "name": "Star Wars Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["sw-movies-series-chronological", "sw-skywalker-saga"]
+        }
+      },
+      {
+        "type": "dc-universe",
+        "instanceId": "dcu",
+        "enabled": true,
+        "options": {
+          "name": "DC Universe",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["dc-chronological", "dc-batman"]
         }
       }
     ],
