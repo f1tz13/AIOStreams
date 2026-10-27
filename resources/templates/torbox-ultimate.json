@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, TMDB info, streaming-service, collection, recommendation and franchise catalogs with optional rating posters.",
+    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, rating posters, and hand-picked TMDB, streaming-service, recommendation, collection, franchise, RPDB and AI Search catalogs.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -138,7 +138,7 @@
           "name": "Streaming Catalogs",
           "timeout": 7000,
           "resources": ["catalog"],
-          "catalogs": ["nfx", "dnp", "amp", "atp", "pmp", "hbm", "hay"]
+          "catalogs": ["nfx", "dnp", "amp", "atp", "hbm"]
         }
       },
       {
@@ -167,17 +167,8 @@
           "resources": ["catalog", "meta"],
           "enableAdultContent": false,
           "enableSearch": true,
-          "language": "en"
-        }
-      },
-      {
-        "type": "torrent-catalogs",
-        "instanceId": "trc",
-        "enabled": true,
-        "options": {
-          "name": "Torrent Catalogs",
-          "timeout": 7000,
-          "resources": ["catalog"]
+          "language": "en",
+          "moveStreamLinkToTop": false
         }
       },
       {
@@ -211,6 +202,41 @@
           "timeout": 7000,
           "resources": ["catalog"],
           "catalogs": ["dc-chronological", "dc-batman"]
+        }
+      },
+      {
+        "type": "doctor-who-universe",
+        "instanceId": "dwu",
+        "enabled": true,
+        "options": {
+          "name": "Doctor Who Universe",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"]
+        }
+      },
+      {
+        "type": "rpdb-catalogs",
+        "instanceId": "rpc",
+        "enabled": true,
+        "options": {
+          "name": "RPDB Catalogs",
+          "timeout": 7000,
+          "resources": ["catalog"],
+          "catalogs": ["movie", "series", "other"]
+        }
+      },
+      {
+        "type": "ai-search",
+        "instanceId": "ais",
+        "enabled": true,
+        "options": {
+          "name": "AI Search",
+          "timeout": 7000,
+          "resources": ["catalog", "meta"],
+          "geminiApiKey": "<required_template_placeholder>",
+          "AiResponseCaching": true,
+          "language": "en-US",
+          "numberOfRecommendations": 20
         }
       }
     ],
@@ -425,7 +451,7 @@
       "global": 40
     },
     "posterService": "rpdb",
-    "rpdbApiKey": "<optional_template_placeholder>",
+    "rpdbApiKey": "<required_template_placeholder>",
     "usePosterServiceForMeta": true
   }
 }
