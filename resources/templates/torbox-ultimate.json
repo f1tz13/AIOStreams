@@ -5,7 +5,7 @@
     "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, rating posters, and hand-picked TMDB, streaming-service, recommendation, collection, franchise, RPDB and AI Search catalogs.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -155,7 +155,8 @@
           "enableTitleSearching": true,
           "forceToTop": false,
           "language": "en",
-          "metadataSource": "tmdb"
+          "metadataSource": "tmdb",
+          "streamButtons": ["details", "recs", "app", "web"]
         }
       },
       {
