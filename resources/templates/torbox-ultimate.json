@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-ultimate",
     "name": "TorBox Ultimate",
-    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus broad scraper coverage, 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, rating posters, and hand-picked TMDB, streaming-service, recommendation, collection, franchise, RPDB and AI Search catalogs.",
+    "description": "A quality-first TorBox Pro setup tuned for Fire TV: TorBox Search (torrent + usenet) plus Comet, StremThru Torz, MediaFusion and TorrentGalaxy (install Torrentio separately: it returns nothing through public AIOStreams instances), 4K first, English audio, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered, rating posters, and hand-picked TMDB, streaming-service, recommendation, collection, franchise, RPDB and AI Search catalogs.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -23,18 +23,6 @@
           "mediaTypes": [],
           "userSearchEngines": false,
           "onlyShowUserSearchResults": false,
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "torrentio",
-        "instanceId": "80c",
-        "enabled": true,
-        "options": {
-          "name": "Torrentio",
-          "timeout": 5000,
-          "resources": ["stream"],
-          "providers": [],
           "useMultipleInstances": false
         }
       },
