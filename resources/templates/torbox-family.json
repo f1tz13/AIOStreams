@@ -5,7 +5,7 @@
     "description": "A family-friendly TorBox Pro setup: the same 4K-first, English, Fire TV-friendly streams as TorBox Ultimate, with Kids & Family (G/PG) rows, Netflix Kids, Disney+, film collections, recommendations and Marvel/Star Wars animation catalogs. Only TorBox and TMDB keys are required.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -23,18 +23,6 @@
           "mediaTypes": [],
           "userSearchEngines": false,
           "onlyShowUserSearchResults": false,
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "torrentio",
-        "instanceId": "80c",
-        "enabled": true,
-        "options": {
-          "name": "Torrentio",
-          "timeout": 5000,
-          "resources": ["stream"],
-          "providers": [],
           "useMultipleInstances": false
         }
       },
