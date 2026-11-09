@@ -9,7 +9,8 @@ on:
 jobs:
   release:
     name: release
-    if: ${{ github.ref == 'refs/heads/main' }}
+    # Publishing needs the upstream project's secrets; skip in forks.
+    if: ${{ github.ref == 'refs/heads/main' && github.repository == 'Viren070/AIOStreams' }}
     runs-on: ubuntu-latest
     permissions:
       actions: write
