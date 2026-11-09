@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     name: build
+    # Publishing needs the upstream project's secrets; skip in forks.
+    if: ${{ github.repository == 'Viren070/AIOStreams' }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
