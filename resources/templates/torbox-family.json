@@ -2,10 +2,10 @@
   "metadata": {
     "id": "builtin.torbox-family",
     "name": "TorBox Family",
-    "description": "A family-friendly TorBox Pro setup: the same 4K-first, English, Fire TV-friendly streams as TorBox Ultimate, with Kids & Family (G/PG) rows, Netflix Kids, Disney+, film collections, recommendations and Marvel/Star Wars animation catalogs. Only TorBox and TMDB keys are required.",
+    "description": "Streams-only family TorBox Pro setup: the same fast, grouped stream sources and 4K-first, English, Fire TV-friendly ranking as TorBox Ultimate. Use AIOMetadata for catalogs (e.g. Netflix Kids, Disney+) and posters, and install Torrentio separately.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -78,98 +78,6 @@
           "timeout": 7000,
           "mediaTypes": [],
           "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "tmdb-addon",
-        "instanceId": "tmd",
-        "enabled": true,
-        "options": {
-          "name": "The Movie Database",
-          "timeout": 7000,
-          "resources": ["catalog", "meta"],
-          "hideEpisodeThumbnails": false,
-          "provideImdbId": true,
-          "language": "en-GB"
-        }
-      },
-      {
-        "type": "tmdb-addon",
-        "instanceId": "tmk",
-        "enabled": true,
-        "options": {
-          "name": "Kids & Family",
-          "timeout": 7000,
-          "resources": ["catalog"],
-          "hideEpisodeThumbnails": false,
-          "provideImdbId": true,
-          "language": "en-GB",
-          "ageRating": "PG"
-        }
-      },
-      {
-        "type": "streaming-catalogs",
-        "instanceId": "stc",
-        "enabled": true,
-        "options": {
-          "name": "Streaming Catalogs",
-          "timeout": 7000,
-          "resources": ["catalog"],
-          "catalogs": ["nfk", "dnp", "nfx", "amp", "atp"]
-        }
-      },
-      {
-        "type": "tmdb-collections",
-        "instanceId": "tcl",
-        "enabled": true,
-        "options": {
-          "name": "TMDB Collections",
-          "timeout": 7000,
-          "resources": ["catalog", "meta"],
-          "enableAdultContent": false,
-          "enableSearch": true,
-          "language": "en",
-          "moveStreamLinkToTop": false
-        }
-      },
-      {
-        "type": "more-like-this",
-        "instanceId": "mlt",
-        "enabled": true,
-        "options": {
-          "name": "More Like This",
-          "timeout": 7000,
-          "resources": ["catalog", "meta"],
-          "simklRecomendations": true,
-          "combineCatalogs": true,
-          "includeTmdbCollection": true,
-          "enableTitleSearching": true,
-          "forceToTop": false,
-          "language": "en",
-          "metadataSource": "tmdb",
-          "streamButtons": ["details", "recs", "app", "web"]
-        }
-      },
-      {
-        "type": "marvel-universe",
-        "instanceId": "mcu",
-        "enabled": true,
-        "options": {
-          "name": "Marvel Universe",
-          "timeout": 7000,
-          "resources": ["catalog"],
-          "catalogs": ["animations", "marvel-mcu"]
-        }
-      },
-      {
-        "type": "star-wars-universe",
-        "instanceId": "swu",
-        "enabled": true,
-        "options": {
-          "name": "Star Wars Universe",
-          "timeout": 7000,
-          "resources": ["catalog"],
-          "catalogs": ["sw-animated-series", "sw-skywalker-saga"]
         }
       }
     ],
@@ -383,8 +291,19 @@
       "resolution": 8,
       "global": 40
     },
-    "posterService": "rpdb",
-    "rpdbApiKey": "<optional_template_placeholder>",
-    "usePosterServiceForMeta": true
+    "groups": {
+      "enabled": true,
+      "behaviour": "sequential",
+      "groupings": [
+        {
+          "addons": ["tbx", "c9f"],
+          "condition": "true"
+        },
+        {
+          "addons": ["29d", "224", "7g4"],
+          "condition": "count(cached(totalStreams)) < 5"
+        }
+      ]
+    }
   }
 }
