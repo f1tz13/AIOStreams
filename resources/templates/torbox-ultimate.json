@@ -5,7 +5,7 @@
     "description": "Streams-only TorBox Pro setup for Fire TV: TorBox Search (torrent + usenet) and Comet first, with StremThru Torz, MediaFusion and TorrentGalaxy asked only when fewer than 5 instant results are found. 4K first, English, Dolby Vision/HDR and Fire TV-friendly Dolby audio preferred, junk filtered. Use AIOMetadata for catalogs and posters, and install Torrentio separately. Includes a compact custom stream formatter for Nuvio and Fire TV.",
     "source": "external",
     "author": "AIOStreams",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "category": "Debrid",
     "serviceRequired": true,
     "services": ["torbox"]
@@ -86,12 +86,12 @@
       "definitions": {
         "custom": {
           "name": "{service.cached[\"⚡\"||\"⏳\"]} {stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{? · {stream.visualTags::join(' · ')}?}",
-          "description": "{?🎥 {stream.quality} ?}{?🎞️ {stream.encode} ?}{stream.editions::exists[\"🏆 {stream.editions::join(' · ')} \"||\"\"]}\n{?🔊 {stream.audioTags::join(' · ')} ?}{?{stream.audioChannels::join(' · ')} ?}{stream.languages::exists[\"🗣️ {stream.languageEmojis::join(' ')}\"||\"\"]}\n{stream.size::>0[\"📦 {stream.size::sbytes} \"||\"\"]}{stream.bitrate::>0[\"📊 {stream.bitrate::sbitrate} \"||\"\"]}{?🏷️ {stream.releaseGroup}?}\n{service.cached[\"⚡ Instant\"||\"⏳ Needs download\"]}{service.id::exists[\" · {service.shortName}\"||\"\"]}{stream.type::=usenet[\" · 📰 Usenet\"||\"\"]}{stream.library[\" · 📌 In your TorBox\"||\"\"]} · {addon.name}\n{?ℹ️ {stream.message}?}"
+          "description": "{?🎥 {stream.quality} ?}{?🎞️ {stream.encode} ?}{stream.editions::exists[\"🏆 {stream.editions::join(' · ')} \"||\"\"]}\n{?🔊 {stream.audioTags::join(' · ')} ?}{?{stream.audioChannels::join(' · ')} ?}{stream.languages::string::~English[\"🇬🇧 English\"||\"\"]}{stream.languages::exists::and::stream.languages::string::~English::isfalse[\"🗣️ {stream.languageEmojis::join(' ')}\"||\"\"]}\n{stream.bitrate::>0[\"📊 {stream.bitrate::sbitrate} \"||\"\"]}{?🏷️ {stream.releaseGroup}?}\n{service.cached[\"⚡ Instant\"||\"⏳ Needs download\"]}{service.id::exists[\" · {service.shortName}\"||\"\"]}{stream.type::=usenet[\" · 📰 Usenet\"||\"\"]}{stream.library[\" · 📌 In your TorBox\"||\"\"]} · {addon.name}\n{?ℹ️ {stream.message}?}"
         }
       },
       "definition": {
         "name": "{service.cached[\"⚡\"||\"⏳\"]} {stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{? · {stream.visualTags::join(' · ')}?}",
-        "description": "{?🎥 {stream.quality} ?}{?🎞️ {stream.encode} ?}{stream.editions::exists[\"🏆 {stream.editions::join(' · ')} \"||\"\"]}\n{?🔊 {stream.audioTags::join(' · ')} ?}{?{stream.audioChannels::join(' · ')} ?}{stream.languages::exists[\"🗣️ {stream.languageEmojis::join(' ')}\"||\"\"]}\n{stream.size::>0[\"📦 {stream.size::sbytes} \"||\"\"]}{stream.bitrate::>0[\"📊 {stream.bitrate::sbitrate} \"||\"\"]}{?🏷️ {stream.releaseGroup}?}\n{service.cached[\"⚡ Instant\"||\"⏳ Needs download\"]}{service.id::exists[\" · {service.shortName}\"||\"\"]}{stream.type::=usenet[\" · 📰 Usenet\"||\"\"]}{stream.library[\" · 📌 In your TorBox\"||\"\"]} · {addon.name}\n{?ℹ️ {stream.message}?}"
+        "description": "{?🎥 {stream.quality} ?}{?🎞️ {stream.encode} ?}{stream.editions::exists[\"🏆 {stream.editions::join(' · ')} \"||\"\"]}\n{?🔊 {stream.audioTags::join(' · ')} ?}{?{stream.audioChannels::join(' · ')} ?}{stream.languages::string::~English[\"🇬🇧 English\"||\"\"]}{stream.languages::exists::and::stream.languages::string::~English::isfalse[\"🗣️ {stream.languageEmojis::join(' ')}\"||\"\"]}\n{stream.bitrate::>0[\"📊 {stream.bitrate::sbitrate} \"||\"\"]}{?🏷️ {stream.releaseGroup}?}\n{service.cached[\"⚡ Instant\"||\"⏳ Needs download\"]}{service.id::exists[\" · {service.shortName}\"||\"\"]}{stream.type::=usenet[\" · 📰 Usenet\"||\"\"]}{stream.library[\" · 📌 In your TorBox\"||\"\"]} · {addon.name}\n{?ℹ️ {stream.message}?}"
       }
     },
     "preferredQualities": [
